@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Data Analysis Learning Hub</title>
     <style>
         * {
@@ -116,6 +119,16 @@
         .btn:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-coming-soon {
+            background: #999;
+            cursor: not-allowed;
+        }
+        
+        .btn-coming-soon:hover {
+            transform: none;
+            box-shadow: none;
         }
         
         .resources-section {
@@ -270,6 +283,7 @@
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideDown 0.6s ease-out;
         }
 
         .lessons-grid {
@@ -329,6 +343,35 @@
             font-size: 0.8em;
             margin-left: 10px;
         }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        .coming-soon-message {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-message h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-message p {
+            color: #333;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
@@ -382,120 +425,174 @@
         <h2 style="color: white; margin-bottom: 30px; font-size: 2em;">📚 Learning Modules</h2>
         
         <div class="modules-grid">
+            <!-- PYTHON BASICS -->
             <div class="module-card">
                 <div class="module-icon">🐍</div>
-                <h2>Python Basics <span class="completion-badge">In Progress</span></h2>
+                <h2>Python Basics <span class="completion-badge">✓ Complete</span></h2>
                 <p>Learn fundamental Python concepts needed for data analysis.</p>
                 <ul>
                     <li>Variables and Data Types</li>
                     <li>Operators and Expressions</li>
                     <li>Control Flow (If/Elif/Else)</li>
-                    <li>Loops and Functions</li>
+                    <li>Loops</li>
+                    <li>Functions</li>
                 </ul>
-                <button class="btn" onclick="toggleLessons()">View Lessons</button>
+                <button class="btn" onclick="toggleLessons('python')">📖 View Lessons</button>
             </div>
             
+            <!-- PANDAS ESSENTIALS -->
             <div class="module-card">
                 <div class="module-icon">📦</div>
-                <h2>Pandas Essentials</h2>
+                <h2>Pandas Essentials <span class="coming-soon-badge">Coming Soon</span></h2>
                 <p>Master data manipulation with Pandas library.</p>
                 <ul>
                     <li>DataFrames & Series</li>
                     <li>Data Loading & Cleaning</li>
                     <li>Data Transformation</li>
                 </ul>
-                <button class="btn" onclick="alert('Module: Pandas Essentials - Coming Soon!')">Start Learning</button>
+                <button class="btn btn-coming-soon" onclick="toggleLessons('pandas')">⏳ Coming Soon</button>
             </div>
             
+            <!-- DATA VISUALIZATION -->
             <div class="module-card">
                 <div class="module-icon">📈</div>
-                <h2>Data Visualization</h2>
+                <h2>Data Visualization <span class="coming-soon-badge">Coming Soon</span></h2>
                 <p>Create beautiful and meaningful data visualizations.</p>
                 <ul>
                     <li>Matplotlib Plotting</li>
                     <li>Seaborn Advanced Plots</li>
                     <li>Interactive Dashboards</li>
                 </ul>
-                <button class="btn" onclick="alert('Module: Data Visualization - Coming Soon!')">Start Learning</button>
+                <button class="btn btn-coming-soon" onclick="toggleLessons('visualization')">⏳ Coming Soon</button>
             </div>
             
+            <!-- STATISTICAL ANALYSIS -->
             <div class="module-card">
                 <div class="module-icon">📊</div>
-                <h2>Statistical Analysis</h2>
+                <h2>Statistical Analysis <span class="coming-soon-badge">Coming Soon</span></h2>
                 <p>Understand statistics for data-driven decisions.</p>
                 <ul>
                     <li>Descriptive Statistics</li>
                     <li>Hypothesis Testing</li>
                     <li>Correlation & Regression</li>
                 </ul>
-                <button class="btn" onclick="alert('Module: Statistical Analysis - Coming Soon!')">Start Learning</button>
+                <button class="btn btn-coming-soon" onclick="toggleLessons('statistics')">⏳ Coming Soon</button>
             </div>
             
+            <!-- DATA CLEANING -->
             <div class="module-card">
                 <div class="module-icon">🧹</div>
-                <h2>Data Cleaning</h2>
+                <h2>Data Cleaning <span class="coming-soon-badge">Coming Soon</span></h2>
                 <p>Learn to prepare and clean real-world data.</p>
                 <ul>
                     <li>Handling Missing Data</li>
                     <li>Outlier Detection</li>
                     <li>Data Normalization</li>
                 </ul>
-                <button class="btn" onclick="alert('Module: Data Cleaning - Coming Soon!')">Start Learning</button>
+                <button class="btn btn-coming-soon" onclick="toggleLessons('cleaning')">⏳ Coming Soon</button>
             </div>
             
+            <!-- MACHINE LEARNING -->
             <div class="module-card">
                 <div class="module-icon">🤖</div>
-                <h2>Machine Learning Intro</h2>
+                <h2>Machine Learning Intro <span class="coming-soon-badge">Coming Soon</span></h2>
                 <p>Introduction to machine learning with Scikit-learn.</p>
                 <ul>
                     <li>Supervised Learning</li>
                     <li>Classification & Regression</li>
                     <li>Model Evaluation</li>
                 </ul>
-                <button class="btn" onclick="alert('Module: Machine Learning Intro - Coming Soon!')">Start Learning</button>
+                <button class="btn btn-coming-soon" onclick="toggleLessons('ml')">⏳ Coming Soon</button>
             </div>
         </div>
 
-        <div id="lessonsSection" class="lessons-container" style="display: none;">
-            <h2 style="color: #667eea; margin-bottom: 25px;">🐍 Python Basics - Lessons</h2>
+        <!-- PYTHON BASICS LESSONS -->
+        <div id="python-lessons" class="lessons-container" style="display: none;">
+            <h2 style="color: #667eea; margin-bottom: 25px;">🐍 Python Basics - All 5 Lessons Available! </h2>
+            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em;"><strong>Click on any lesson to view the code on GitHub →</strong></p>
             <div class="lessons-grid">
                 <div class="lesson-card">
-                    <h3>01. Variables and Data Types</h3>
+                    <h3>01. Variables & Data Types</h3>
                     <p>Learn how to create variables and work with different data types in Python including strings, integers, floats, lists, and dictionaries.</p>
-                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/01_variables_and_basics.py" target="_blank">View Lesson →</a>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/01_variables_and_basics.py" target="_blank">👉 View Code</a>
                 </div>
 
                 <div class="lesson-card">
-                    <h3>02. Operators and Expressions</h3>
+                    <h3>02. Operators & Expressions</h3>
                     <p>Master arithmetic, comparison, logical, and assignment operators. Understand how to build expressions in Python.</p>
-                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/02_operators_and_expressions.py" target="_blank">View Lesson →</a>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/02_operators_and_expressions.py" target="_blank">👉 View Code</a>
                 </div>
 
                 <div class="lesson-card">
                     <h3>03. Control Flow</h3>
                     <p>Understand if, elif, and else statements. Learn how to make decisions in your code with conditional statements.</p>
-                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/03_control_flow.py" target="_blank">View Lesson →</a>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/03_control_flow.py" target="_blank">👉 View Code</a>
                 </div>
 
                 <div class="lesson-card">
                     <h3>04. Loops</h3>
                     <p>Master for loops and while loops. Learn about iteration, range(), enumerate(), break, and continue statements.</p>
-                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/04_loops.py" target="_blank">View Lesson →</a>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/04_loops.py" target="_blank">👉 View Code</a>
                 </div>
 
                 <div class="lesson-card">
                     <h3>05. Functions</h3>
                     <p>Learn how to define and use functions. Master parameters, return values, *args, **kwargs, and lambda functions.</p>
-                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/05_functions.py" target="_blank">View Lesson →</a>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/05_functions.py" target="_blank">👉 View Code</a>
                 </div>
 
                 <div class="lesson-card">
-                    <h3>📝 Download All Lessons</h3>
-                    <p>Download all Python Basics scripts as a complete package from the repository scripts folder.</p>
-                    <a href="https://github.com/helenrose34/Data-analysis/tree/main/scripts" target="_blank">View All Scripts →</a>
+                    <h3>📁 All Scripts Folder</h3>
+                    <p>Download all Python Basics scripts and access the complete scripts folder from the repository.</p>
+                    <a href="https://github.com/helenrose34/Data-analysis/tree/main/scripts" target="_blank">👉 View Folder</a>
                 </div>
             </div>
-            <button class="btn" onclick="toggleLessons()" style="margin-top: 20px;">Hide Lessons</button>
+            <button class="btn" onclick="toggleLessons('python')" style="margin-top: 20px;">🔒 Hide Lessons</button>
+        </div>
+
+        <!-- PANDAS LESSONS (Coming Soon) -->
+        <div id="pandas-lessons" class="lessons-container" style="display: none;">
+            <div class="coming-soon-message">
+                <h3>📦 Pandas Essentials - Coming Soon!</h3>
+                <p>We're preparing comprehensive lessons on Pandas DataFrames, data manipulation, and cleaning. Check back soon! 🚀</p>
+            </div>
+            <button class="btn" onclick="toggleLessons('pandas')" style="margin-top: 20px;">🔒 Hide</button>
+        </div>
+
+        <!-- DATA VISUALIZATION LESSONS (Coming Soon) -->
+        <div id="visualization-lessons" class="lessons-container" style="display: none;">
+            <div class="coming-soon-message">
+                <h3>📈 Data Visualization - Coming Soon!</h3>
+                <p>We're creating lessons on Matplotlib, Seaborn, and interactive visualizations. Stay tuned! 🎨</p>
+            </div>
+            <button class="btn" onclick="toggleLessons('visualization')" style="margin-top: 20px;">🔒 Hide</button>
+        </div>
+
+        <!-- STATISTICS LESSONS (Coming Soon) -->
+        <div id="statistics-lessons" class="lessons-container" style="display: none;">
+            <div class="coming-soon-message">
+                <h3>📊 Statistical Analysis - Coming Soon!</h3>
+                <p>We're developing detailed lessons on statistics, hypothesis testing, and regression. Coming very soon! 📚</p>
+            </div>
+            <button class="btn" onclick="toggleLessons('statistics')" style="margin-top: 20px;">🔒 Hide</button>
+        </div>
+
+        <!-- DATA CLEANING LESSONS (Coming Soon) -->
+        <div id="cleaning-lessons" class="lessons-container" style="display: none;">
+            <div class="coming-soon-message">
+                <h3>🧹 Data Cleaning - Coming Soon!</h3>
+                <p>We're preparing lessons on handling missing data, outliers, and data normalization. Stay tuned! 🧼</p>
+            </div>
+            <button class="btn" onclick="toggleLessons('cleaning')" style="margin-top: 20px;">🔒 Hide</button>
+        </div>
+
+        <!-- MACHINE LEARNING LESSONS (Coming Soon) -->
+        <div id="ml-lessons" class="lessons-container" style="display: none;">
+            <div class="coming-soon-message">
+                <h3>🤖 Machine Learning Intro - Coming Soon!</h3>
+                <p>We're building comprehensive ML lessons using Scikit-learn. Get ready to dive into the future of AI! 🚀</p>
+            </div>
+            <button class="btn" onclick="toggleLessons('ml')" style="margin-top: 20px;">🔒 Hide</button>
         </div>
         
         <div class="resources-section">
@@ -530,13 +627,13 @@
         
         <footer>
             <p>🚀 Data Analysis Learning Hub | Learn at Your Own Pace | Master Data with Confidence</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Repository: helenrose34/Data-analysis | Last Updated: 2026</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Repository: helenrose34/Data-analysis | Updated: 2026-06-08 | Version: 3.0</p>
         </footer>
     </div>
 
     <script>
-        function toggleLessons() {
-            const lessonsSection = document.getElementById('lessonsSection');
+        function toggleLessons(module) {
+            const lessonsSection = document.getElementById(module + '-lessons');
             if (lessonsSection.style.display === 'none') {
                 lessonsSection.style.display = 'block';
             } else {
