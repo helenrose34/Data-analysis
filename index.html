@@ -263,6 +263,72 @@
             font-size: 1em;
             opacity: 0.9;
         }
+
+        .lessons-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .lesson-card {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            background: #f0f2ff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .lesson-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .lesson-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .lesson-card a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .lesson-card a:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -294,9 +360,9 @@
         <div class="progress-tracker">
             <h2>🎯 Your Learning Progress</h2>
             <div>
-                <p style="margin-bottom: 10px; color: #667eea; font-weight: bold;">Beginner Track: 0%</p>
+                <p style="margin-bottom: 10px; color: #667eea; font-weight: bold;">Beginner Track: 20%</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%;">0%</div>
+                    <div class="progress-fill" style="width: 20%;">20%</div>
                 </div>
             </div>
             <div>
@@ -318,14 +384,15 @@
         <div class="modules-grid">
             <div class="module-card">
                 <div class="module-icon">🐍</div>
-                <h2>Python Basics</h2>
+                <h2>Python Basics <span class="completion-badge">In Progress</span></h2>
                 <p>Learn fundamental Python concepts needed for data analysis.</p>
                 <ul>
                     <li>Variables and Data Types</li>
-                    <li>Functions and Loops</li>
-                    <li>Lists and Dictionaries</li>
+                    <li>Operators and Expressions</li>
+                    <li>Control Flow (If/Elif/Else)</li>
+                    <li>Loops and Functions</li>
                 </ul>
-                <button class="btn" onclick="alert('Module: Python Basics - Coming Soon!')">Start Learning</button>
+                <button class="btn" onclick="toggleLessons()">View Lessons</button>
             </div>
             
             <div class="module-card">
@@ -388,6 +455,48 @@
                 <button class="btn" onclick="alert('Module: Machine Learning Intro - Coming Soon!')">Start Learning</button>
             </div>
         </div>
+
+        <div id="lessonsSection" class="lessons-container" style="display: none;">
+            <h2 style="color: #667eea; margin-bottom: 25px;">🐍 Python Basics - Lessons</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <h3>01. Variables and Data Types</h3>
+                    <p>Learn how to create variables and work with different data types in Python including strings, integers, floats, lists, and dictionaries.</p>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/01_variables_and_basics.py" target="_blank">View Lesson →</a>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>02. Operators and Expressions</h3>
+                    <p>Master arithmetic, comparison, logical, and assignment operators. Understand how to build expressions in Python.</p>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/02_operators_and_expressions.py" target="_blank">View Lesson →</a>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>03. Control Flow</h3>
+                    <p>Understand if, elif, and else statements. Learn how to make decisions in your code with conditional statements.</p>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/03_control_flow.py" target="_blank">View Lesson →</a>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>04. Loops</h3>
+                    <p>Master for loops and while loops. Learn about iteration, range(), enumerate(), break, and continue statements.</p>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/04_loops.py" target="_blank">View Lesson →</a>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>05. Functions</h3>
+                    <p>Learn how to define and use functions. Master parameters, return values, *args, **kwargs, and lambda functions.</p>
+                    <a href="https://github.com/helenrose34/Data-analysis/blob/main/scripts/05_functions.py" target="_blank">View Lesson →</a>
+                </div>
+
+                <div class="lesson-card">
+                    <h3>📝 Download All Lessons</h3>
+                    <p>Download all Python Basics scripts as a complete package from the repository scripts folder.</p>
+                    <a href="https://github.com/helenrose34/Data-analysis/tree/main/scripts" target="_blank">View All Scripts →</a>
+                </div>
+            </div>
+            <button class="btn" onclick="toggleLessons()" style="margin-top: 20px;">Hide Lessons</button>
+        </div>
         
         <div class="resources-section">
             <h2>🛠️ Essential Resources & Tools</h2>
@@ -424,5 +533,16 @@
             <p style="margin-top: 10px; font-size: 0.9em;">Repository: helenrose34/Data-analysis | Last Updated: 2026</p>
         </footer>
     </div>
+
+    <script>
+        function toggleLessons() {
+            const lessonsSection = document.getElementById('lessonsSection');
+            if (lessonsSection.style.display === 'none') {
+                lessonsSection.style.display = 'block';
+            } else {
+                lessonsSection.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
