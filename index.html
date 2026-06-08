@@ -286,9 +286,14 @@
             background: white;
             border-radius: 10px;
             padding: 30px;
-            margin-bottom: 30px;
+            margin: 40px 0;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             animation: slideDown 0.6s ease-out;
+            display: none;
+        }
+
+        .lessons-container.show {
+            display: block;
         }
 
         .lessons-grid {
@@ -379,14 +384,6 @@
             color: #333;
             font-size: 1.1em;
         }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .visible {
-            display: block !important;
-        }
     </style>
 </head>
 <body>
@@ -451,7 +448,7 @@
                     <li>Loops</li>
                     <li>Functions</li>
                 </ul>
-                <button class="btn" onclick="showPython()">📖 View Lessons</button>
+                <button class="btn" onclick="togglePython()">📖 View Lessons</button>
             </div>
             
             <div class="module-card">
@@ -463,7 +460,7 @@
                     <li>Data Loading & Cleaning</li>
                     <li>Data Transformation</li>
                 </ul>
-                <button class="btn btn-coming-soon" onclick="showPandas()">⏳ Coming Soon</button>
+                <button class="btn btn-coming-soon" onclick="togglePandas()">⏳ Coming Soon</button>
             </div>
             
             <div class="module-card">
@@ -475,7 +472,7 @@
                     <li>Seaborn Advanced Plots</li>
                     <li>Interactive Dashboards</li>
                 </ul>
-                <button class="btn btn-coming-soon" onclick="showVisualization()">⏳ Coming Soon</button>
+                <button class="btn btn-coming-soon" onclick="toggleVisualization()">⏳ Coming Soon</button>
             </div>
             
             <div class="module-card">
@@ -487,7 +484,7 @@
                     <li>Hypothesis Testing</li>
                     <li>Correlation & Regression</li>
                 </ul>
-                <button class="btn btn-coming-soon" onclick="showStatistics()">⏳ Coming Soon</button>
+                <button class="btn btn-coming-soon" onclick="toggleStatistics()">⏳ Coming Soon</button>
             </div>
             
             <div class="module-card">
@@ -499,7 +496,7 @@
                     <li>Outlier Detection</li>
                     <li>Data Normalization</li>
                 </ul>
-                <button class="btn btn-coming-soon" onclick="showCleaning()">⏳ Coming Soon</button>
+                <button class="btn btn-coming-soon" onclick="toggleCleaning()">⏳ Coming Soon</button>
             </div>
             
             <div class="module-card">
@@ -511,14 +508,14 @@
                     <li>Classification & Regression</li>
                     <li>Model Evaluation</li>
                 </ul>
-                <button class="btn btn-coming-soon" onclick="showML()">⏳ Coming Soon</button>
+                <button class="btn btn-coming-soon" onclick="toggleML()">⏳ Coming Soon</button>
             </div>
         </div>
 
         <!-- PYTHON BASICS LESSONS -->
-        <div id="pythonLessons" class="lessons-container hidden">
+        <div id="pythonLessons" class="lessons-container">
             <h2 style="color: #667eea; margin-bottom: 25px;">🐍 Python Basics - All 5 Lessons Available! </h2>
-            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em;"><strong>Click on any lesson to view the code on GitHub →</strong></p>
+            <p style="color: #666; margin-bottom: 20px; font-size: 1.1em;"><strong>👇 Click on any lesson below to view the code on GitHub</strong></p>
             <div class="lessons-grid">
                 <div class="lesson-card">
                     <h3>01. Variables & Data Types</h3>
@@ -556,52 +553,52 @@
                     <a href="https://github.com/helenrose34/Data-analysis/tree/main/scripts" target="_blank">👉 View Folder</a>
                 </div>
             </div>
-            <button class="btn" onclick="hidePython()" style="margin-top: 20px;">🔒 Hide Lessons</button>
+            <button class="btn" onclick="togglePython()" style="margin-top: 20px;">🔒 Hide Lessons</button>
         </div>
 
         <!-- PANDAS LESSONS (Coming Soon) -->
-        <div id="pandasLessons" class="lessons-container hidden">
+        <div id="pandasLessons" class="lessons-container">
             <div class="coming-soon-message">
                 <h3>📦 Pandas Essentials - Coming Soon!</h3>
                 <p>We're preparing comprehensive lessons on Pandas DataFrames, data manipulation, and cleaning. Check back soon! 🚀</p>
             </div>
-            <button class="btn" onclick="hidePandas()" style="margin-top: 20px;">🔒 Hide</button>
+            <button class="btn" onclick="togglePandas()" style="margin-top: 20px;">🔒 Hide</button>
         </div>
 
         <!-- DATA VISUALIZATION LESSONS (Coming Soon) -->
-        <div id="visualizationLessons" class="lessons-container hidden">
+        <div id="visualizationLessons" class="lessons-container">
             <div class="coming-soon-message">
                 <h3>📈 Data Visualization - Coming Soon!</h3>
                 <p>We're creating lessons on Matplotlib, Seaborn, and interactive visualizations. Stay tuned! 🎨</p>
             </div>
-            <button class="btn" onclick="hideVisualization()" style="margin-top: 20px;">🔒 Hide</button>
+            <button class="btn" onclick="toggleVisualization()" style="margin-top: 20px;">🔒 Hide</button>
         </div>
 
         <!-- STATISTICS LESSONS (Coming Soon) -->
-        <div id="statisticsLessons" class="lessons-container hidden">
+        <div id="statisticsLessons" class="lessons-container">
             <div class="coming-soon-message">
                 <h3>📊 Statistical Analysis - Coming Soon!</h3>
                 <p>We're developing detailed lessons on statistics, hypothesis testing, and regression. Coming very soon! 📚</p>
             </div>
-            <button class="btn" onclick="hideStatistics()" style="margin-top: 20px;">🔒 Hide</button>
+            <button class="btn" onclick="toggleStatistics()" style="margin-top: 20px;">🔒 Hide</button>
         </div>
 
         <!-- DATA CLEANING LESSONS (Coming Soon) -->
-        <div id="cleaningLessons" class="lessons-container hidden">
+        <div id="cleaningLessons" class="lessons-container">
             <div class="coming-soon-message">
                 <h3>🧹 Data Cleaning - Coming Soon!</h3>
                 <p>We're preparing lessons on handling missing data, outliers, and data normalization. Stay tuned! 🧼</p>
             </div>
-            <button class="btn" onclick="hideCleaning()" style="margin-top: 20px;">🔒 Hide</button>
+            <button class="btn" onclick="toggleCleaning()" style="margin-top: 20px;">🔒 Hide</button>
         </div>
 
         <!-- MACHINE LEARNING LESSONS (Coming Soon) -->
-        <div id="mlLessons" class="lessons-container hidden">
+        <div id="mlLessons" class="lessons-container">
             <div class="coming-soon-message">
                 <h3>🤖 Machine Learning Intro - Coming Soon!</h3>
                 <p>We're building comprehensive ML lessons using Scikit-learn. Get ready to dive into the future of AI! 🚀</p>
             </div>
-            <button class="btn" onclick="hideML()" style="margin-top: 20px;">🔒 Hide</button>
+            <button class="btn" onclick="toggleML()" style="margin-top: 20px;">🔒 Hide</button>
         </div>
         
         <div class="resources-section">
@@ -636,69 +633,69 @@
         
         <footer>
             <p>🚀 Data Analysis Learning Hub | Learn at Your Own Pace | Master Data with Confidence</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Repository: helenrose34/Data-analysis | Updated: 2026-06-08 | Version: 4.0</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Repository: helenrose34/Data-analysis | Updated: 2026-06-08 | Version: 5.0</p>
         </footer>
     </div>
 
     <script>
-        function showPython() {
-            document.getElementById('pythonLessons').classList.remove('hidden');
-            document.getElementById('pythonLessons').classList.add('visible');
-            document.getElementById('pythonLessons').scrollIntoView({ behavior: 'smooth' });
-        }
-        function hidePython() {
-            document.getElementById('pythonLessons').classList.add('hidden');
-            document.getElementById('pythonLessons').classList.remove('visible');
-        }
-
-        function showPandas() {
-            document.getElementById('pandasLessons').classList.remove('hidden');
-            document.getElementById('pandasLessons').classList.add('visible');
-            document.getElementById('pandasLessons').scrollIntoView({ behavior: 'smooth' });
-        }
-        function hidePandas() {
-            document.getElementById('pandasLessons').classList.add('hidden');
-            document.getElementById('pandasLessons').classList.remove('visible');
+        function togglePython() {
+            const element = document.getElementById('pythonLessons');
+            element.classList.toggle('show');
+            if (element.classList.contains('show')) {
+                setTimeout(function() {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
         }
 
-        function showVisualization() {
-            document.getElementById('visualizationLessons').classList.remove('hidden');
-            document.getElementById('visualizationLessons').classList.add('visible');
-            document.getElementById('visualizationLessons').scrollIntoView({ behavior: 'smooth' });
-        }
-        function hideVisualization() {
-            document.getElementById('visualizationLessons').classList.add('hidden');
-            document.getElementById('visualizationLessons').classList.remove('visible');
-        }
-
-        function showStatistics() {
-            document.getElementById('statisticsLessons').classList.remove('hidden');
-            document.getElementById('statisticsLessons').classList.add('visible');
-            document.getElementById('statisticsLessons').scrollIntoView({ behavior: 'smooth' });
-        }
-        function hideStatistics() {
-            document.getElementById('statisticsLessons').classList.add('hidden');
-            document.getElementById('statisticsLessons').classList.remove('visible');
+        function togglePandas() {
+            const element = document.getElementById('pandasLessons');
+            element.classList.toggle('show');
+            if (element.classList.contains('show')) {
+                setTimeout(function() {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
         }
 
-        function showCleaning() {
-            document.getElementById('cleaningLessons').classList.remove('hidden');
-            document.getElementById('cleaningLessons').classList.add('visible');
-            document.getElementById('cleaningLessons').scrollIntoView({ behavior: 'smooth' });
-        }
-        function hideCleaning() {
-            document.getElementById('cleaningLessons').classList.add('hidden');
-            document.getElementById('cleaningLessons').classList.remove('visible');
+        function toggleVisualization() {
+            const element = document.getElementById('visualizationLessons');
+            element.classList.toggle('show');
+            if (element.classList.contains('show')) {
+                setTimeout(function() {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
         }
 
-        function showML() {
-            document.getElementById('mlLessons').classList.remove('hidden');
-            document.getElementById('mlLessons').classList.add('visible');
-            document.getElementById('mlLessons').scrollIntoView({ behavior: 'smooth' });
+        function toggleStatistics() {
+            const element = document.getElementById('statisticsLessons');
+            element.classList.toggle('show');
+            if (element.classList.contains('show')) {
+                setTimeout(function() {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
         }
-        function hideML() {
-            document.getElementById('mlLessons').classList.add('hidden');
-            document.getElementById('mlLessons').classList.remove('visible');
+
+        function toggleCleaning() {
+            const element = document.getElementById('cleaningLessons');
+            element.classList.toggle('show');
+            if (element.classList.contains('show')) {
+                setTimeout(function() {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        function toggleML() {
+            const element = document.getElementById('mlLessons');
+            element.classList.toggle('show');
+            if (element.classList.contains('show')) {
+                setTimeout(function() {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
         }
     </script>
 </body>
